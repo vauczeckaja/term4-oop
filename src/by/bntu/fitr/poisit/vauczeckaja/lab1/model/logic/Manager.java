@@ -19,29 +19,33 @@ public class Manager {
 
     public static double calculateProfit(ArrayList<Film> films) {
         double totalProfit = 0;
-        for (Film film : films) {
-            totalProfit += film.getProfit();
+        if (films != null) {
+            for (Film film : films) {
+                totalProfit += film.getProfit();
+            }
         }
         return totalProfit;
     }
 
     public static double calculateExpenses(ArrayList<Film> films) {
         double totalExpenses = 0;
-        for (Film film : films) {
-            totalExpenses += film.getBudget();
+        if (films != null) {
+            for (Film film : films) {
+                totalExpenses += film.getBudget();
+            }
         }
         return totalExpenses;
     }
 
     public static String checkStatus(ArrayList<Film> films) {
         String res = "";
-
-        for (Film film : films) {
-            String status = STATUS_FAILED;
-            if (film.getProfit() > 0) status = STATUS_SUCCESSFUL;
-            res += film.getName() + " was " + status + "\n";
+        if (films != null) {
+            for (Film film : films) {
+                String status = STATUS_FAILED;
+                if (film.getProfit() > 0) status = STATUS_SUCCESSFUL;
+                res += film.getName() + " was " + status + "\n";
+            }
         }
-
         return res;
     }
 
@@ -51,8 +55,10 @@ public class Manager {
 
     public static String showInfo(ArrayList<Film> films) {
         String res = "";
-        for (Film film : films) {
-            res += film.toString() + "\n";
+        if (films != null) {
+            for (Film film : films) {
+                res += film.toString() + "\n";
+            }
         }
         return res;
     }

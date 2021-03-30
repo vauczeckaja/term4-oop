@@ -1,6 +1,5 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Film {

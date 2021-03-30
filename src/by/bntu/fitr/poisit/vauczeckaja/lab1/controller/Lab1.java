@@ -1,7 +1,5 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.controller;
 
-import java.util.ArrayList;
-
 import by.bntu.fitr.poisit.vauczeckaja.lab1.util.UserInput;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.view.Printer;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.Manager;
