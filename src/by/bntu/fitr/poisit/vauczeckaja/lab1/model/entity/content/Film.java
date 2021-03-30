@@ -1,7 +1,10 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Film {
-    public static final double MIN_COST = 0;
+    private static final double MIN_COST = 0;
 
     private String name;
     private String director;
@@ -9,17 +12,23 @@ public class Film {
     private double gross;
     private double profit;
 
+    public static ArrayList<Film> filmSet;
 
     public Film() {
     }
 
     public Film(String name, String director, double budget, double gross) {
+        if (filmSet == null) filmSet = new ArrayList<>();
+
         this.name = name;
         this.director = director;
         this.budget = budget;
         this.gross = gross;
         this.profit = gross - budget;
+
+        if (!hasFilm()) filmSet.add(this);
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -61,5 +70,12 @@ public class Film {
                 + "\nDirector: " + director
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
+    }
+
+    private boolean hasFilm() {
+        for (Film film : filmSet) {
+            if (film.name == this.name) return true;
+        }
+        return false;
     }
 }

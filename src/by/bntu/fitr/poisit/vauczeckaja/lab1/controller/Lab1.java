@@ -19,30 +19,29 @@ public class Lab1 {
 
     public static void main(String[] args) {
         int choice;
-        ArrayList<Film> films = new ArrayList<Film>();
 
         while (true) {
             choice = UserInput.inputInt(MENU+ "Input your choice: ");
             switch (choice) {
                 case 1:
                     Director director = Manager.hireDirector();
-                    films.add(director.createFilm(Manager.allocateBudget()));
+                    director.createFilm(Manager.allocateBudget());
                     break;
 
                 case 2:
-                    Printer.print("Company profit: " + Manager.calculateProfit(films) + "\n");
+                    Printer.print("Company profit: " + Manager.calculateProfit(Film.filmSet) + "\n");
                     break;
 
                 case 3:
-                    Printer.print("Company expenses: " + Manager.calculateExpenses(films) + "\n");
+                    Printer.print("Company expenses: " + Manager.calculateExpenses(Film.filmSet) + "\n");
                     break;
 
                 case 4:
-                    Printer.print(Manager.checkStatus(films));
+                    Printer.print(Manager.checkStatus(Film.filmSet));
                     break;
 
                 case 5:
-                    Printer.print(Manager.showInfo(films));
+                    Printer.print(Manager.showInfo(Film.filmSet));
                     break;
 
                 case 6:
