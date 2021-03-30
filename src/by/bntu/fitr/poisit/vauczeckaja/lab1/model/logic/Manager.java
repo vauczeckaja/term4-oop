@@ -64,13 +64,3 @@ public class Manager {
     }
 
 }
-
-// @Test
-// aaa - arrange act assert
-/*
-
-import org.junit.Test;
-import org.junit.Assert;
-public void testSum() {
-Assert.fail();
- */
