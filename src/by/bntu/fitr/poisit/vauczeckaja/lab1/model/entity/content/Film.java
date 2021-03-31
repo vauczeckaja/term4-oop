@@ -1,6 +1,7 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Film {
     private static final double MIN_COST = 0;
@@ -11,13 +12,14 @@ public class Film {
     private double gross;
     private double profit;
 
-    public static ArrayList<Film> filmSet;
+    public static List<Film> filmSet;
 
     public Film() {
+        filmSet = new ArrayList<>();
     }
 
     public Film(String name, String director, double budget, double gross) {
-        if (filmSet == null) filmSet = new ArrayList<>();
+        this();
 
         this.name = name;
         this.director = director;
@@ -27,6 +29,17 @@ public class Film {
 
         if (!hasFilm()) filmSet.add(this);
     }
+
+//    public Film(String name, String director, double budget, double gross, List<Film> films) {
+//        filmSet = films;
+//        this.name = name;
+//        this.director = director;
+//        this.budget = budget;
+//        this.gross = gross;
+//        this.profit = gross - budget;
+//
+//        if (!hasFilm()) filmSet.add(this);
+//    }
 
 
     public void setName(String name) {
@@ -42,7 +55,7 @@ public class Film {
     public String getDirector() {
         return this.director;
     }
-
+// TOdO exception
     public void setBudget(double budget) {
         if (budget >= MIN_COST)
             this.budget = budget;

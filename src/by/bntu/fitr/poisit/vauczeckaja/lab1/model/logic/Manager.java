@@ -9,6 +9,7 @@ import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Randomizer;
 public class Manager {
     private static final double MIN_BUDGET = 0.0;
     private static final double MAX_BUDGET = 100000000.0;
+    // TODO enum
     private static final String STATUS_FAILED = "failed";
     private static final String STATUS_SUCCESSFUL = "successful";
 
@@ -16,7 +17,7 @@ public class Manager {
     public static double allocateBudget() {
         return Randomizer.randomDouble(MIN_BUDGET, MAX_BUDGET);
     }
-
+// TODO убрать массив
     public static double calculateProfit(ArrayList<Film> films) {
         double totalProfit = 0;
         if (films != null) {
@@ -55,6 +56,7 @@ public class Manager {
 
     public static String showInfo(ArrayList<Film> films) {
         String res = "";
+        // TODO use string builder
         if (films != null) {
             for (Film film : films) {
                 res += film.toString() + "\n";
