@@ -51,15 +51,15 @@ public class Manager {
     }
 
     public static String checkStatus(List<Film> films) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         if (films != null) {
             for (Film film : films) {
                 String status = Status.FAILED.toString();
                 if (film.getProfit() > 0) status = Status.SUCCESSFUL.toString();
-                res += film.getName() + " was " + status + "\n";
+                res.append(film.getName()).append(" was ").append(status).append("\n");
             }
         }
-        return res;
+        return res.toString();
     }
 
     public static Director hireDirector() {
@@ -70,7 +70,7 @@ public class Manager {
         StringBuilder res = new StringBuilder();
         if (films != null) {
             for (Film film : films) {
-                res.append(film.toString() + "\n");
+                res.append(film.toString()).append("\n");
             }
         }
         return res.toString();
