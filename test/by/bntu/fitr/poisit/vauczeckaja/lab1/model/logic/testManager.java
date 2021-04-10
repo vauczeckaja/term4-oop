@@ -1,7 +1,6 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Film;
-import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.Manager;
 
 import org.junit.Test;
 import org.junit.Assert;

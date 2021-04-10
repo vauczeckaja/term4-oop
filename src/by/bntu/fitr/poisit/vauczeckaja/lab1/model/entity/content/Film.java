@@ -91,7 +91,7 @@ public class Film {
 
     private boolean hasFilm() {
         for (Film film : filmSet) {
-            if (film.name == this.name) return true;
+            if (film.name.equals(this.name)) return true;
         }
         return false;
     }
