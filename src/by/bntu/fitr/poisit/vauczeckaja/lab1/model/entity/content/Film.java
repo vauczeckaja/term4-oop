@@ -30,17 +30,6 @@ public class Film {
         if (!hasFilm()) filmSet.add(this);
     }
 
-//    public Film(String name, String director, double budget, double gross, List<Film> films) {
-//        filmSet = films;
-//        this.name = name;
-//        this.director = director;
-//        this.budget = budget;
-//        this.gross = gross;
-//        this.profit = gross - budget;
-//
-//        if (!hasFilm()) filmSet.add(this);
-//    }
-
 
     public void setName(String name) {
         this.name = name;
@@ -55,7 +44,7 @@ public class Film {
     public String getDirector() {
         return this.director;
     }
-// TOdO exception
+// TODO exception
     public void setBudget(double budget) {
         if (budget >= MIN_COST)
             this.budget = budget;

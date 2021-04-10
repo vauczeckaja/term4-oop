@@ -1,6 +1,6 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Film;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Randomizer;
@@ -10,15 +10,28 @@ public class Manager {
     private static final double MIN_BUDGET = 0.0;
     private static final double MAX_BUDGET = 100000000.0;
     // TODO enum
-    private static final String STATUS_FAILED = "failed";
-    private static final String STATUS_SUCCESSFUL = "successful";
+//    private static final String STATUS_FAILED = "failed";
+//    private static final String STATUS_SUCCESSFUL = "successful";
+    private enum Status {
+        FAILED("failed"),
+        SUCCESSFUL("successful");
+
+        private final String status;
+
+        Status(final String status) {
+            this.status = status;
+        }
+
+        @Override
+        public String toString() { return status; }
+    }
 
 
     public static double allocateBudget() {
         return Randomizer.randomDouble(MIN_BUDGET, MAX_BUDGET);
     }
 // TODO убрать массив
-    public static double calculateProfit(ArrayList<Film> films) {
+    public static double calculateProfit(List<Film> films) {
         double totalProfit = 0;
         if (films != null) {
             for (Film film : films) {
@@ -28,7 +41,7 @@ public class Manager {
         return totalProfit;
     }
 
-    public static double calculateExpenses(ArrayList<Film> films) {
+    public static double calculateExpenses(List<Film> films) {
         double totalExpenses = 0;
         if (films != null) {
             for (Film film : films) {
@@ -38,12 +51,12 @@ public class Manager {
         return totalExpenses;
     }
 
-    public static String checkStatus(ArrayList<Film> films) {
+    public static String checkStatus(List<Film> films) {
         String res = "";
         if (films != null) {
             for (Film film : films) {
-                String status = STATUS_FAILED;
-                if (film.getProfit() > 0) status = STATUS_SUCCESSFUL;
+                String status = Status.FAILED.toString();
+                if (film.getProfit() > 0) status = Status.SUCCESSFUL.toString();
                 res += film.getName() + " was " + status + "\n";
             }
         }
@@ -54,7 +67,7 @@ public class Manager {
         return new Director();
     }
 
-    public static String showInfo(ArrayList<Film> films) {
+    public static String showInfo(List<Film> films) {
         String res = "";
         // TODO use string builder
         if (films != null) {
