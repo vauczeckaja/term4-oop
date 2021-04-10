@@ -18,7 +18,13 @@ public class Film {
         filmSet = new ArrayList<>();
     }
 
-    public Film() {}
+    public Film() {
+        this.name = "noname";
+        this.director = "noname";
+        this.budget = MIN_COST;
+        this.gross = MIN_COST;
+        this.profit = MIN_COST;
+    }
 
     public Film(String name, String director, double budget, double gross) {
         this();
