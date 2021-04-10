@@ -27,8 +27,6 @@ public class Film {
     }
 
     public Film(String name, String director, double budget, double gross) {
-        this();
-
         this.name = name;
         this.director = director;
         this.budget = budget;
