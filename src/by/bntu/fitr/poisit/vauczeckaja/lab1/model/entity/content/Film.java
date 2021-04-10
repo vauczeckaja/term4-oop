@@ -14,9 +14,11 @@ public class Film {
 
     public static List<Film> filmSet;
 
-    public Film() {
+    static {
         filmSet = new ArrayList<>();
     }
+
+    public Film() {}
 
     public Film(String name, String director, double budget, double gross) {
         this();

@@ -1,6 +1,7 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 
 import java.util.List;
+import java.lang.StringBuilder;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Film;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Randomizer;
@@ -9,9 +10,7 @@ import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Randomizer;
 public class Manager {
     private static final double MIN_BUDGET = 0.0;
     private static final double MAX_BUDGET = 100000000.0;
-    // TODO enum
-//    private static final String STATUS_FAILED = "failed";
-//    private static final String STATUS_SUCCESSFUL = "successful";
+
     private enum Status {
         FAILED("failed"),
         SUCCESSFUL("successful");
@@ -30,7 +29,7 @@ public class Manager {
     public static double allocateBudget() {
         return Randomizer.randomDouble(MIN_BUDGET, MAX_BUDGET);
     }
-// TODO убрать массив
+
     public static double calculateProfit(List<Film> films) {
         double totalProfit = 0;
         if (films != null) {
@@ -68,14 +67,13 @@ public class Manager {
     }
 
     public static String showInfo(List<Film> films) {
-        String res = "";
-        // TODO use string builder
+        StringBuilder res = new StringBuilder();
         if (films != null) {
             for (Film film : films) {
-                res += film.toString() + "\n";
+                res.append(film.toString() + "\n");
             }
         }
-        return res;
+        return res.toString();
     }
 
 }
