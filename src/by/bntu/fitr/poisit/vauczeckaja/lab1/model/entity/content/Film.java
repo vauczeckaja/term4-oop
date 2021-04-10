@@ -19,11 +19,11 @@ public class Film {
     }
 
     public Film() {
-        this.name = "noname";
-        this.director = "noname";
-        this.budget = MIN_COST;
-        this.gross = MIN_COST;
-        this.profit = MIN_COST;
+        name = "noname";
+        director = "noname";
+        budget = MIN_COST;
+        gross = MIN_COST;
+        profit = MIN_COST;
     }
 
     public Film(String name, String director, double budget, double gross) {
@@ -36,6 +36,14 @@ public class Film {
         this.profit = gross - budget;
 
         if (!hasFilm()) filmSet.add(this);
+    }
+
+    public Film(Film film) {
+        name = film.name;
+        director = film.director;
+        budget = film.budget;
+        gross = film.gross;
+        profit = film.profit;
     }
 
 
