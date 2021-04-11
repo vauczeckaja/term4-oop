@@ -17,7 +17,7 @@ public abstract class Content {
             this.type = type;
         }
 
-        public ContentType get(String value) {
+        public static ContentType get(String value) {
             for (ContentType el : EnumSet.allOf(ContentType.class)) {
                 if (el.type.equals(value)) return el;
             }
@@ -30,15 +30,30 @@ public abstract class Content {
 
     protected ContentType type;
     protected String name;
+    protected String director;
     protected double budget;
     protected double gross;
     protected double profit;
+
+    public void setType(String type) {
+        this.type = ContentType.get(type);
+    }
+    public ContentType getType() {
+        return type;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
     public String getName() {
-        return this.name;
+        return name;
+    }
+
+    public void getDirector(String director) {
+        this.director = Content.this.director;
+    }
+    public String getDirector() {
+        return this.director;
     }
 
     public void setBudget(double budget) {

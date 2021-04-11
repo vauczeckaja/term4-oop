@@ -4,13 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Film extends Content {
-    private String director;
-
-    public static List<Film> filmSet;
-
-    static {
-        filmSet = new ArrayList<>();
-    }
 
     {
         type = ContentType.FILM;
@@ -30,8 +23,6 @@ public class Film extends Content {
         this.budget = budget;
         this.gross = gross;
         this.profit = gross - budget;
-
-        if (!hasFilm()) filmSet.add(this);
     }
 
     public Film(Film film) {
@@ -49,12 +40,5 @@ public class Film extends Content {
                 + "\nDirector: " + director
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
-    }
-
-    private boolean hasFilm() {
-        for (Film film : filmSet) {
-            if (film.name.equals(this.name)) return true;
-        }
-        return false;
     }
 }
