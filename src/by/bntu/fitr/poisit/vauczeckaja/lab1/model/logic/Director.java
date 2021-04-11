@@ -14,7 +14,7 @@ public class Director {
     private static final double MIN_GROSS = 0;
     private static final double MAX_GROSS = 200000000.0;
 
-    private static final Map<String, String> DIRECTOR_FILM_DICT = new HashMap<String, String>();
+    private static final Map<String, String> DIRECTOR_FILM_DICT = new HashMap<>();
     static {
         DIRECTOR_FILM_DICT.put("David Lynch", "Twin Peaks");
         DIRECTOR_FILM_DICT.put("Quentin Tarantino", "Pulp Fiction");
@@ -30,11 +30,11 @@ public class Director {
         DIRECTOR_FILM_DICT.put("Guillermo del Toro", "Blade II");
         DIRECTOR_FILM_DICT.put("Park Chan-wook", "Oldboy");
     }
-    private List<String> directors = new ArrayList<String>(DIRECTOR_FILM_DICT.keySet());
+    private List<String> directors = new ArrayList<>(DIRECTOR_FILM_DICT.keySet());
 
     private String name;
 
-    public Director() {
+    Director() {
         java.util.Random random = new Random();
         this.name = directors.get(random.nextInt(directors.size()));
     }
