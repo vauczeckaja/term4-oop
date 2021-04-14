@@ -7,11 +7,6 @@ public class Film extends Content {
     }
 
     public Film() {
-        name = "noname";
-        creator = "noname";
-        budget = MIN_COST;
-        gross = MIN_COST;
-        profit = MIN_COST;
     }
 
     public Film(String name, String director, double budget, double gross) {

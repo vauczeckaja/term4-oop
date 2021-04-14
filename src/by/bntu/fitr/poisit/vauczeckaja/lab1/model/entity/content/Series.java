@@ -12,13 +12,8 @@ public class Series extends Content {
     }
 
     public Series() {
-        name = "noname";
-        creator = "noname";
         seasonsAmount = MIN_SEASONS_AMOUNT;
         seriesInSeasonAmount = MIN_SERIES_AMOUNT;
-        budget = MIN_COST;
-        gross = MIN_COST;
-        profit = MIN_COST;
     }
 
     public Series(String name, String director, int seasons, int seriesInSeason, double budget, double gross) {

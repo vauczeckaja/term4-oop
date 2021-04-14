@@ -2,7 +2,7 @@ package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
 import java.util.EnumSet;
 
-public abstract class Content {
+public class Content {
     protected static final double MIN_COST = 0;
 
     public enum ContentType {
@@ -34,6 +34,15 @@ public abstract class Content {
     protected double budget;
     protected double gross;
     protected double profit;
+
+    public Content() {
+        type = ContentType.NOT_DEFINED;
+        name = "noname";
+        creator ="noname";
+        budget = MIN_COST;
+        gross = MIN_COST;
+        profit = MIN_COST;
+    }
 
     public void setType(String type) {
         this.type = ContentType.get(type);
