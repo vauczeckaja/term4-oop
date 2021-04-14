@@ -1,8 +1,5 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Film extends Content {
 
     {
@@ -11,7 +8,7 @@ public class Film extends Content {
 
     public Film() {
         name = "noname";
-        director = "noname";
+        creator = "noname";
         budget = MIN_COST;
         gross = MIN_COST;
         profit = MIN_COST;
@@ -19,7 +16,7 @@ public class Film extends Content {
 
     public Film(String name, String director, double budget, double gross) {
         this.name = name;
-        this.director = director;
+        this.creator = director;
         this.budget = budget;
         this.gross = gross;
         this.profit = gross - budget;
@@ -27,7 +24,7 @@ public class Film extends Content {
 
     public Film(Film film) {
         name = film.name;
-        director = film.director;
+        creator = film.creator;
         budget = film.budget;
         gross = film.gross;
         profit = film.profit;
@@ -37,7 +34,7 @@ public class Film extends Content {
     public String toString() {
         return "\nName: " + name
                 + "\nType: " + type
-                + "\nDirector: " + director
+                + "\nCreator: " + creator
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
     }

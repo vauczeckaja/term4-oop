@@ -5,7 +5,7 @@ import java.util.EnumSet;
 public abstract class Content {
     protected static final double MIN_COST = 0;
 
-    protected enum ContentType {
+    public enum ContentType {
         FILM ("film"),
         SERIES("series"),
         ANIMATED_FILM("animated film"),
@@ -30,7 +30,7 @@ public abstract class Content {
 
     protected ContentType type;
     protected String name;
-    protected String director;
+    protected String creator;
     protected double budget;
     protected double gross;
     protected double profit;
@@ -50,10 +50,10 @@ public abstract class Content {
     }
 
     public void getDirector(String director) {
-        this.director = Content.this.director;
+        this.creator = Content.this.creator;
     }
-    public String getDirector() {
-        return this.director;
+    public String getCreator() {
+        return this.creator;
     }
 
     public void setBudget(double budget) {
@@ -80,6 +80,7 @@ public abstract class Content {
     public String toString() {
         return "\nName: " + name
                 + "\nType: " + type
+                + "\nCreator: " + creator
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
     }

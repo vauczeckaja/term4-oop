@@ -13,7 +13,7 @@ public class Series extends Content {
 
     public Series() {
         name = "noname";
-        director = "noname";
+        creator = "noname";
         seasonsAmount = MIN_SEASONS_AMOUNT;
         seriesInSeasonAmount = MIN_SERIES_AMOUNT;
         budget = MIN_COST;
@@ -25,7 +25,7 @@ public class Series extends Content {
         this();
 
         this.name = name;
-        this.director = director;
+        this.creator = director;
 
         if (budget >= MIN_COST && gross >= MIN_COST && seasons >= MIN_SEASONS_AMOUNT && seriesInSeason >= MIN_SERIES_AMOUNT) {
             this.seasonsAmount = seasons;
@@ -38,7 +38,7 @@ public class Series extends Content {
 
     public Series(Series series) {
         name = series.name;
-        director = series.director;
+        creator = series.creator;
         seriesInSeasonAmount = series.seriesInSeasonAmount;
         seasonsAmount = series.seasonsAmount;
         budget = series.budget;
@@ -67,7 +67,9 @@ public class Series extends Content {
     public String toString() {
         return "\nName: " + name
                 + "\nType: " + type
-                + "\nDirector: " + director
+                + "\nCreator: " + creator
+                + "\nNumber of series in season: " + seriesInSeasonAmount
+                + "\nNumber of seasons: " + seasonsAmount
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
     }

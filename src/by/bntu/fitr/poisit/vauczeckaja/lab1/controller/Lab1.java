@@ -6,9 +6,7 @@ import java.util.EnumSet;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.util.UserInput;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.view.Printer;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.Manager;
-import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.Director;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Film;
-
 
 
 public class Lab1 {
@@ -51,24 +49,20 @@ public class Lab1 {
             choice = UserInput.inputInt(MENU+ "Input your choice: ");
             switch (Task.is(choice)) {
                 case CREATE_FILM:
-                    Director director = Manager.hireDirector();
-                    director.createFilm(Manager.allocateBudget());
                     break;
 
                 case CALC_PROFIT:
-                    Printer.print("Company profit: " + Manager.calculateProfit(Film.filmSet) + "\n");
                     break;
 
                 case CALC_EXPENSES:
-                    Printer.print("Company expenses: " + Manager.calculateExpenses(Film.filmSet) + "\n");
                     break;
 
                 case CHECK_STATUS:
-                    Printer.print(Manager.checkStatus(Film.filmSet));
+
                     break;
 
                 case SHOW_INFO:
-                    Printer.print(Manager.showInfo(Film.filmSet));
+
                     break;
 
                 case EXIT:

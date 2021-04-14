@@ -3,13 +3,9 @@ package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 import java.util.List;
 import java.lang.StringBuilder;
 
-import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Film;
-import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Randomizer;
-
+import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.*;
 
 public class Manager {
-    private static final double MIN_BUDGET = 0.0;
-    private static final double MAX_BUDGET = 100000000.0;
 
     private enum Status {
         FAILED("failed"),
@@ -23,11 +19,6 @@ public class Manager {
 
         @Override
         public String toString() { return status; }
-    }
-
-
-    public static double allocateBudget() {
-        return Randomizer.randomDouble(MIN_BUDGET, MAX_BUDGET);
     }
 
     public static double calculateProfit(List<Film> films) {
@@ -60,10 +51,6 @@ public class Manager {
             }
         }
         return res.toString();
-    }
-
-    public static Director hireDirector() {
-        return new Director();
     }
 
     public static String showInfo(List<Film> films) {
