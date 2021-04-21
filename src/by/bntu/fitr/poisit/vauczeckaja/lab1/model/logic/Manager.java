@@ -1,8 +1,7 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 
-import java.util.List;
-import java.lang.StringBuilder;
 
+import java.lang.StringBuilder;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
 
 public class Manager {

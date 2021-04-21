@@ -5,7 +5,7 @@ import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Film;
 
 import org.junit.Test;
 import org.junit.Assert;
-import java.util.ArrayList;
+
 
 public class testManager {
 

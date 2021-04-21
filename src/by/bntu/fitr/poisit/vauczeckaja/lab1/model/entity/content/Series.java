@@ -4,16 +4,16 @@ public class Series extends Content {
     private static final int MIN_SEASONS_AMOUNT = 1;
     private static final int MIN_SERIES_AMOUNT = 1;
 
-    int seasonsAmount;
-    int seriesInSeasonAmount;
+    int seasons;
+    int seriesInSeason;
 
     {
         type = ContentType.SERIES;
     }
 
     public Series() {
-        seasonsAmount = MIN_SEASONS_AMOUNT;
-        seriesInSeasonAmount = MIN_SERIES_AMOUNT;
+        seasons = MIN_SEASONS_AMOUNT;
+        seriesInSeason = MIN_SERIES_AMOUNT;
     }
 
     public Series(String name, String director, int seasons, int seriesInSeason, int budget, int gross) {
@@ -23,8 +23,8 @@ public class Series extends Content {
         this.creator = director;
 
         if (budget >= MIN_COST && gross >= MIN_COST && seasons >= MIN_SEASONS_AMOUNT && seriesInSeason >= MIN_SERIES_AMOUNT) {
-            this.seasonsAmount = seasons;
-            this.seriesInSeasonAmount = seriesInSeason;
+            this.seasons = seasons;
+            this.seriesInSeason = seriesInSeason;
             this.budget = budget;
             this.gross = gross;
             this.profit = gross - budget;
@@ -34,28 +34,28 @@ public class Series extends Content {
     public Series(Series series) {
         name = series.name;
         creator = series.creator;
-        seriesInSeasonAmount = series.seriesInSeasonAmount;
-        seasonsAmount = series.seasonsAmount;
+        seriesInSeason = series.seriesInSeason;
+        seasons = series.seasons;
         budget = series.budget;
         gross = series.gross;
         profit = series.profit;
     }
 
-    public int getSeasonsAmount() {
-        return seasonsAmount;
+    public int getSeasons() {
+        return seasons;
     }
-    public void setSeasonsAmount(int seasonsAmount) {
-        if (seasonsAmount > MIN_SEASONS_AMOUNT) this.seasonsAmount = seasonsAmount;
-        else this.seasonsAmount = MIN_SEASONS_AMOUNT;
+    public void setSeasons(int seasons) {
+        if (seasons > MIN_SEASONS_AMOUNT) this.seasons = seasons;
+        else this.seasons = MIN_SEASONS_AMOUNT;
     }
 
-    public int getSeriesInSeasonAmount() {
-        return seriesInSeasonAmount;
+    public int getSeriesInSeason() {
+        return seriesInSeason;
     }
-    public void setSeriesInSeasonAmount(int seriesInSeasonAmount) {
-        this.seriesInSeasonAmount = seriesInSeasonAmount;
-        if (seriesInSeasonAmount > MIN_SERIES_AMOUNT) this.seriesInSeasonAmount = seriesInSeasonAmount;
-        else this.seriesInSeasonAmount = MIN_SERIES_AMOUNT;
+    public void setSeriesInSeason(int seriesInSeason) {
+        this.seriesInSeason = seriesInSeason;
+        if (seriesInSeason > MIN_SERIES_AMOUNT) this.seriesInSeason = seriesInSeason;
+        else this.seriesInSeason = MIN_SERIES_AMOUNT;
     }
 
     @Override
@@ -63,8 +63,8 @@ public class Series extends Content {
         return "\nName: " + name
                 + "\nType: " + type
                 + "\nCreator: " + creator
-                + "\nNumber of series in season: " + seriesInSeasonAmount
-                + "\nNumber of seasons: " + seasonsAmount
+                + "\nNumber of series in season: " + seriesInSeason
+                + "\nNumber of seasons: " + seasons
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
     }
