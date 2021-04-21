@@ -14,8 +14,8 @@ import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.*;
 public class ContentInitializer {
     private static final int MAX_GROSS = 200000000;
 	private static final int MAX_BUDGET = 100000000;
-	public static final int MAX_SERIES_NUM = 100;
-	public static final int MAX_SEASONS_NUM = 50;
+	private static final int MAX_SERIES_NUM = 100;
+	private static final int MAX_SEASONS_NUM = 50;
 
 	private static final Map<String, String> CREATOR_CONTENT_DICT = new HashMap<>();
 	private static final List<Content.ContentType> TYPES = Collections.unmodifiableList(Arrays.asList(Content.ContentType.values()));
