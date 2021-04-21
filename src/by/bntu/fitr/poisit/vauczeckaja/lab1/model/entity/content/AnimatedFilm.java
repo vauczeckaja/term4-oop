@@ -9,8 +9,8 @@ public final class AnimatedFilm extends Film {
     public AnimatedFilm() {
     }
 
-    public AnimatedFilm(String name, String director, double budget, double gross) {
-    	super(name, director, budget, gross);
+    public AnimatedFilm(String name, String creator, int budget, int gross) {
+    	super(name, creator, budget, gross);
     }
 
     public AnimatedFilm(AnimatedFilm film) {

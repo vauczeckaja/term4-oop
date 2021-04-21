@@ -16,7 +16,7 @@ public class Series extends Content {
         seriesInSeasonAmount = MIN_SERIES_AMOUNT;
     }
 
-    public Series(String name, String director, int seasons, int seriesInSeason, double budget, double gross) {
+    public Series(String name, String director, int seasons, int seriesInSeason, int budget, int gross) {
         this();
 
         this.name = name;

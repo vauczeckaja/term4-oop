@@ -9,7 +9,7 @@ public class Film extends Content {
     public Film() {
     }
 
-    public Film(String name, String director, double budget, double gross) {
+    public Film(String name, String director, int budget, int gross) {
         this.name = name;
         this.creator = director;
         this.budget = budget;

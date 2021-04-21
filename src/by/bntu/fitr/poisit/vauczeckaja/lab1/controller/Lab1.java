@@ -57,11 +57,11 @@ public class Lab1 {
                     break;
 
                 case CALC_PROFIT:
-                    Printer.print("\nCompany profit: " + Manager.calculateProfit(contentList));
+                    Printer.print("\nCompany profit: " + Manager.calculateProfit(contentList) + "\n");
                     break;
 
                 case CALC_EXPENSES:
-                    Printer.print("\nCompany expenses: " + Manager.calculateExpenses(contentList));
+                    Printer.print("\nCompany expenses: " + Manager.calculateExpenses(contentList) + "\n");
                     break;
 
                 case CHECK_STATUS:

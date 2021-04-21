@@ -3,7 +3,7 @@ package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 import java.util.EnumSet;
 
 public class Content {
-    protected static final double MIN_COST = 0;
+    protected static final int MIN_COST = 0;
 
     public enum ContentType {
         FILM ("film"),
@@ -13,7 +13,7 @@ public class Content {
 
         private final String type;
 
-        private ContentType(final String type) {
+        ContentType(final String type) {
             this.type = type;
         }
 
@@ -31,9 +31,9 @@ public class Content {
     protected ContentType type;
     protected String name;
     protected String creator;
-    protected double budget;
-    protected double gross;
-    protected double profit;
+    protected int budget;
+    protected int gross;
+    protected int profit;
 
     public Content() {
         type = ContentType.NOT_DEFINED;
@@ -58,30 +58,27 @@ public class Content {
         return name;
     }
 
-    public void getDirector(String director) {
-        this.creator = Content.this.creator;
-    }
     public String getCreator() {
         return this.creator;
     }
 
-    public void setBudget(double budget) {
+    public void setBudget(int budget) {
         if (budget >= MIN_COST)
             this.budget = budget;
     }
-    public double getBudget() {
+    public int getBudget() {
         return this.budget;
     }
 
-    public void setGross(double gross) {
+    public void setGross(int gross) {
         if (gross >= MIN_COST)
             this.gross = gross;
     }
-    public double getGross() {
+    public int getGross() {
         return this.gross;
     }
 
-    public double getProfit() {
+    public int getProfit() {
         return this.profit;
     }
 

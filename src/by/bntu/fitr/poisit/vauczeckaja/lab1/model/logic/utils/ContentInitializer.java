@@ -1,5 +1,6 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.utils;
 
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -8,24 +9,21 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Collections;
 
-
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.*;
-import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Randomizer;
 
 public class ContentInitializer {
-	private static final double MIN_GROSS = 0;
-    private static final double MAX_GROSS = 200000000.0;
-	private static final double MIN_BUDGET = 0.0;
-	private static final double MAX_BUDGET = 100000000.0;
+    private static final int MAX_GROSS = 200000000;
+	private static final int MAX_BUDGET = 100000000;
+	public static final int MAX_SERIES_NUM = 100;
+	public static final int MAX_SEASONS_NUM = 50;
 
 	private static final Map<String, String> CREATOR_CONTENT_DICT = new HashMap<>();
-	private List<String> CREATORS = new ArrayList<>(CREATOR_CONTENT_DICT.keySet());
 	private static final List<Content.ContentType> TYPES = Collections.unmodifiableList(Arrays.asList(Content.ContentType.values()));
 	private static final Random RANDOM = new Random();
 
 	private static String creator;
-	private static double budget;
-	private static double gross;
+	private static int budget;
+	private static int gross;
 
 	static {
 		CREATOR_CONTENT_DICT.put("David Lynch", "Twin Peaks");
@@ -55,15 +53,15 @@ public class ContentInitializer {
 		CREATOR_CONTENT_DICT.put("Nic Pizzolatto", "True Detective");
 	}
 
-	{
-		budget = Randomizer.randomDouble(MIN_BUDGET, MAX_BUDGET);
-		gross = Randomizer.randomDouble(MIN_GROSS, MAX_GROSS);
-		creator = CREATORS.get(RANDOM.nextInt(CREATORS.size()));
-	}
-
 
 	public static void init(Content[] content) {
+		List<String>creators = new ArrayList<>(CREATOR_CONTENT_DICT.keySet());
+
 		for (int i = 0; i < content.length; i++) {
+
+			budget = RANDOM.nextInt(MAX_BUDGET);
+			gross =  RANDOM.nextInt(MAX_GROSS);
+			creator = creators.get(RANDOM.nextInt(creators.size()));
 
 			Content.ContentType type = TYPES.get(RANDOM.nextInt(TYPES.size()));
 
@@ -82,8 +80,8 @@ public class ContentInitializer {
 	}
 
 	private static Series createdSeries() {
-		int seriesInSeason = RANDOM.nextInt();
-		int seasons = RANDOM.nextInt();
+		int seriesInSeason = RANDOM.nextInt(MAX_SERIES_NUM);
+		int seasons = RANDOM.nextInt(MAX_SEASONS_NUM);
 		return new Series(CREATOR_CONTENT_DICT.get(creator), creator, seasons, seriesInSeason, budget, gross);
 	}
 

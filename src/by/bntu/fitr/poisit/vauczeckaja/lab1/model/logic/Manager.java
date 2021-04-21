@@ -21,8 +21,8 @@ public class Manager {
         public String toString() { return status; }
     }
 
-    public static double calculateProfit(Content[] contentList) {
-        double totalProfit = 0;
+    public static int calculateProfit(Content[] contentList) {
+        int totalProfit = 0;
         if (contentList != null) {
             for (Content content : contentList) {
                 totalProfit += content.getProfit();
@@ -31,8 +31,8 @@ public class Manager {
         return totalProfit;
     }
 
-    public static double calculateExpenses(Content[] contentList) {
-        double totalExpenses = 0;
+    public static int calculateExpenses(Content[] contentList) {
+        int totalExpenses = 0;
         if (contentList != null) {
             for (Content content : contentList) {
                 totalExpenses += content.getBudget();
