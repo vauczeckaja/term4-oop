@@ -1,6 +1,6 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 
-
+import java.util.List;
 import java.lang.StringBuilder;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
 
@@ -20,7 +20,7 @@ public class Manager {
         public String toString() { return status; }
     }
 
-    public static int calculateProfit(Content[] contentList) {
+    public static int calculateProfit(List<Content> contentList) {
         int totalProfit = 0;
         if (contentList != null) {
             for (Content content : contentList) {
@@ -30,7 +30,7 @@ public class Manager {
         return totalProfit;
     }
 
-    public static int calculateExpenses(Content[] contentList) {
+    public static int calculateExpenses(List<Content> contentList) {
         int totalExpenses = 0;
         if (contentList != null) {
             for (Content content : contentList) {
@@ -40,7 +40,7 @@ public class Manager {
         return totalExpenses;
     }
 
-    public static String checkStatus(Content[] contentList) {
+    public static String checkStatus(List<Content> contentList) {
         StringBuilder res = new StringBuilder();
         if (contentList != null) {
             for (Content content : contentList) {
@@ -52,7 +52,7 @@ public class Manager {
         return res.toString();
     }
 
-    public static String showInfo(Content[]contentList) {
+    public static String showInfo(List<Content> contentList) {
         StringBuilder res = new StringBuilder();
         if (contentList != null) {
             for (Content content : contentList) {

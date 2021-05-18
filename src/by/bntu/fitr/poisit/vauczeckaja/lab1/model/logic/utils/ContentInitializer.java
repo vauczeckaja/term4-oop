@@ -21,6 +21,7 @@ public class ContentInitializer {
 	private static final List<Content.ContentType> TYPES = Collections.unmodifiableList(Arrays.asList(Content.ContentType.values()));
 	private static final Random RANDOM = new Random();
 
+	private static List<String> creators;
 	private static String creator;
 	private static int budget;
 	private static int gross;
@@ -53,22 +54,20 @@ public class ContentInitializer {
 		CREATOR_CONTENT_DICT.put("Nic Pizzolatto", "True Detective");
 	}
 
+	static {
+		creators = new ArrayList<>(CREATOR_CONTENT_DICT.keySet());
+	}
 
-	public static void init(Content[] content) {
-		List<String>creators = new ArrayList<>(CREATOR_CONTENT_DICT.keySet());
+	public static void init(List<Content> content) {
+		budget = RANDOM.nextInt(MAX_BUDGET);
+		gross =  RANDOM.nextInt(MAX_GROSS);
+		creator = creators.get(RANDOM.nextInt(creators.size()));
 
-		for (int i = 0; i < content.length; i++) {
+		Content.ContentType type = TYPES.get(RANDOM.nextInt(TYPES.size()));
 
-			budget = RANDOM.nextInt(MAX_BUDGET);
-			gross =  RANDOM.nextInt(MAX_GROSS);
-			creator = creators.get(RANDOM.nextInt(creators.size()));
-
-			Content.ContentType type = TYPES.get(RANDOM.nextInt(TYPES.size()));
-
-			if (type == Content.ContentType.FILM) content[i] = createFilm();
-			else if (type == Content.ContentType.SERIES) content[i] = createdSeries();
-			else content[i] = createAnimatedFilm();
-		}
+		if (type == Content.ContentType.FILM) content.add(createFilm());
+		else if (type == Content.ContentType.SERIES) content.add(createdSeries());
+		else content.add(createAnimatedFilm());
 	}
 
 	private static Film createFilm() {

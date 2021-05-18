@@ -2,6 +2,7 @@ package by.bntu.fitr.poisit.vauczeckaja.lab1.controller;
 
 
 import java.util.EnumSet;
+import java.util.List;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.Manager;
@@ -12,7 +13,6 @@ import by.bntu.fitr.poisit.vauczeckaja.lab1.view.Printer;
 
 
 public class Lab1 {
-    private static final int CONTENT_LIST_SIZE = 10;
     private static final String MENU = "\nYou are film producer. In this program you can:\n" +
             "1 - create content (films, tv series, animated films\n" +
             "2 - calculate profit of your company\n" +
@@ -47,7 +47,7 @@ public class Lab1 {
 
     public static void main(String[] args) {
         int choice;
-        Content[] contentList = ContentCreator.createContent(CONTENT_LIST_SIZE);
+        List<Content> contentList = ContentCreator.createContent();
 
         while (true) {
             choice = UserInput.inputInt(MENU+ "Input your choice: ");
