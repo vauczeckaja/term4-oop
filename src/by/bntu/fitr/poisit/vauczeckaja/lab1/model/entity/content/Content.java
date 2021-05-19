@@ -11,21 +11,21 @@ public class Content {
         ANIMATED_FILM("animated film"),
         NOT_DEFINED("not defined");
 
-        private final String type;
+        private final String value;
 
         ContentType(final String type) {
-            this.type = type;
+            this.value = type;
         }
 
         public static ContentType get(String value) {
             for (ContentType el : EnumSet.allOf(ContentType.class)) {
-                if (el.type.equals(value)) return el;
+                if (el.value.equals(value)) return el;
             }
             return NOT_DEFINED;
         }
 
         @Override
-        public String toString() { return type; }
+        public String toString() { return value; }
     }
 
     protected ContentType type;

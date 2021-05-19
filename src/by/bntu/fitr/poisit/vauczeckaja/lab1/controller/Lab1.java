@@ -20,7 +20,8 @@ public class Lab1 {
             "4 - check if films were successful\n" +
             "5 - check info about all films\n" +
             "6 - sort set by a parameter\n" +
-            "7 - exit.\n";
+            "7 - search info by a parameter\n" +
+            "8 - exit.\n";
 
     private enum Task {
         CREATE_CONTENT(1),
@@ -29,7 +30,8 @@ public class Lab1 {
         CHECK_STATUS(4),
         SHOW_INFO(5),
         SORT(6),
-        EXIT(7),
+        SEARCH(7),
+        EXIT(8),
         WRONG_INPUT(0);
 
         private final int task;
@@ -75,6 +77,10 @@ public class Lab1 {
 
                 case SORT:
                     Printer.print(Manager.sortBy(contentList));
+                    break;
+
+                case SEARCH:
+                    Printer.print(Manager.searchBy(contentList));
                     break;
 
                 case EXIT:

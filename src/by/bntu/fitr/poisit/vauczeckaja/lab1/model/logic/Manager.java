@@ -5,6 +5,7 @@ import java.util.List;
 import java.lang.StringBuilder;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.search.Searcher;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.sort.Sorter;
 
 
@@ -70,6 +71,15 @@ public class Manager {
         String res = "";
         if (contentList != null) {
             List<Content> list = new ArrayList<Content>(Sorter.sort(contentList));
+            res = showInfo(list);
+        }
+        return res;
+    }
+
+    public static String searchBy(List<Content> contentList) {
+        String res = "";
+        if (contentList != null) {
+            List<Content> list = new ArrayList<Content>(Searcher.search(contentList));
             res = showInfo(list);
         }
         return res;
