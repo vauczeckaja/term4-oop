@@ -1,8 +1,12 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.lang.StringBuilder;
+
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.sort.Sorter;
+
 
 public class Manager {
 
@@ -62,4 +66,12 @@ public class Manager {
         return res.toString();
     }
 
+    public static String sortBy(List<Content> contentList) {
+        String res = "";
+        if (contentList != null) {
+            List<Content> list = new ArrayList<Content>(Sorter.sort(contentList));
+            res = showInfo(list);
+        }
+        return res;
+    }
 }

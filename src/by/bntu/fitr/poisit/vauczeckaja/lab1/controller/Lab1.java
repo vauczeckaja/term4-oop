@@ -19,7 +19,8 @@ public class Lab1 {
             "3 - calculate expenses of your company\n" +
             "4 - check if films were successful\n" +
             "5 - check info about all films\n" +
-            "6 - exit.\n";
+            "6 - sort set by a parameter\n" +
+            "7 - exit.\n";
 
     private enum Task {
         CREATE_CONTENT(1),
@@ -27,7 +28,8 @@ public class Lab1 {
         CALC_EXPENSES(3),
         CHECK_STATUS(4),
         SHOW_INFO(5),
-        EXIT(6),
+        SORT(6),
+        EXIT(7),
         WRONG_INPUT(0);
 
         private final int task;
@@ -41,7 +43,6 @@ public class Lab1 {
                 if (el.task == choice) return el;
             }
             return WRONG_INPUT;
-
         }
     }
 
@@ -70,6 +71,10 @@ public class Lab1 {
 
                 case SHOW_INFO:
                     Printer.print(Manager.showInfo(contentList));
+                    break;
+
+                case SORT:
+                    Printer.print(Manager.sortBy(contentList));
                     break;
 
                 case EXIT:

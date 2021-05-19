@@ -12,10 +12,11 @@ import java.util.Collections;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.*;
 
 public class ContentInitializer {
-    private static final int MAX_GROSS = 200000000;
-	private static final int MAX_BUDGET = 100000000;
+    private static final int MAX_GROSS = 2000000;
+	private static final int MAX_BUDGET = 1000000;
 	private static final int MAX_SERIES_NUM = 100;
 	private static final int MAX_SEASONS_NUM = 50;
+	private static final int ROUNDER = 1000;
 
 	private static final Map<String, String> CREATOR_CONTENT_DICT = new HashMap<>();
 	private static final List<Content.ContentType> TYPES = Collections.unmodifiableList(Arrays.asList(Content.ContentType.values()));
@@ -59,8 +60,8 @@ public class ContentInitializer {
 	}
 
 	public static void init(List<Content> content) {
-		budget = RANDOM.nextInt(MAX_BUDGET);
-		gross =  RANDOM.nextInt(MAX_GROSS);
+		budget = RANDOM.nextInt(MAX_BUDGET) / ROUNDER * ROUNDER;
+		gross =  RANDOM.nextInt(MAX_GROSS) / ROUNDER * ROUNDER;
 		creator = creators.get(RANDOM.nextInt(creators.size()));
 
 		Content.ContentType type = TYPES.get(RANDOM.nextInt(TYPES.size()));
