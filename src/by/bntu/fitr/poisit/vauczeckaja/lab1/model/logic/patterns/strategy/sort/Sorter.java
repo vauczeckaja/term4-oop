@@ -1,7 +1,11 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.sort;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
-import by.bntu.fitr.poisit.vauczeckaja.lab1.util.UserInput;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.search.SearchByStatus;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.search.SearchByType;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.search.Searcher;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.util.input.ConsoleReader;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.util.input.Reader;
 
 import java.util.EnumSet;
 import java.util.List;
@@ -12,6 +16,7 @@ public class Sorter {
             "2 - by budget\n" +
             "3 - by gross\n" +
             "4 - by profit\n";
+    private static final Reader CONSOLE_READER = new ConsoleReader();
 
     private static SortStrategy strategy;
 
@@ -40,11 +45,16 @@ public class Sorter {
     }
 
     private static void chooseStrategy() {
-        int choice = UserInput.inputInt(MENU + "Your choice: ");
+        try {
+            int choice = Integer.parseInt(CONSOLE_READER.read(MENU+ "Input your choice: "));
 
-        if (Parameter.is(choice) == Parameter.BY_TYPE) strategy = new SortByType();
-        else if (Parameter.is(choice) == Parameter.BY_BUDGET) strategy = new SortByBudget();
-        else if (Parameter.is(choice) == Parameter.BY_GROSS) strategy = new SortByGross();
-        else if (Parameter.is(choice) == Parameter.BY_PROFIT) strategy = new SortByProfit();
+            if (Parameter.is(choice) == Parameter.BY_TYPE) strategy = new SortByType();
+            else if (Parameter.is(choice) == Parameter.BY_BUDGET) strategy = new SortByBudget();
+            else if (Parameter.is(choice) == Parameter.BY_GROSS) strategy = new SortByGross();
+            else if (Parameter.is(choice) == Parameter.BY_PROFIT) strategy = new SortByProfit();
+
+        } catch (NumberFormatException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

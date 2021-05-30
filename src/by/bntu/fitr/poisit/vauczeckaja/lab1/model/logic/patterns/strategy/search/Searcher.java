@@ -1,7 +1,8 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.search;
 
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
-import by.bntu.fitr.poisit.vauczeckaja.lab1.util.UserInput;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.util.input.ConsoleReader;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.util.input.Reader;
 
 import java.util.EnumSet;
 import java.util.List;
@@ -10,6 +11,7 @@ public class Searcher {
     private static final String MENU = "\nInput parameter you'd like to search by:\n" +
             "1 - by type of the content\n" +
             "2 - by profit\n";
+    private static final Reader CONSOLE_READER = new ConsoleReader();
 
     private static SearchStrategy strategy;
 
@@ -38,9 +40,14 @@ public class Searcher {
     }
 
     private static void chooseStrategy() {
-        int choice = UserInput.inputInt(MENU + "Your choice: ");
+        try {
+            int choice = Integer.parseInt(CONSOLE_READER.read(MENU+ "Input your choice: "));
 
-        if (Parameter.is(choice) == Parameter.BY_TYPE) strategy = new SearchByType();
-        else if (Parameter.is(choice) == Parameter.BY_STATUS) strategy = new SearchByStatus();
+            if (Parameter.is(choice) == Parameter.BY_TYPE) strategy = new SearchByType();
+            else if (Parameter.is(choice) == Parameter.BY_STATUS) strategy = new SearchByStatus();
+
+        } catch (NumberFormatException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

@@ -1,7 +1,6 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.view;
 
-public class Printer {
-    public static void print(String msg) {
-        System.out.print(msg);
-    }
+public interface Printer {
+    void print(String msg);
+    void println(String msg);
 }
