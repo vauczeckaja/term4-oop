@@ -1,6 +1,11 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
-public class Series extends Content {
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
+public class Series extends Content implements Externalizable {
     private static final int MIN_SEASONS_AMOUNT = 1;
     private static final int MIN_SERIES_AMOUNT = 1;
 
@@ -45,17 +50,14 @@ public class Series extends Content {
         return seasons;
     }
     public void setSeasons(int seasons) {
-        if (seasons > MIN_SEASONS_AMOUNT) this.seasons = seasons;
-        else this.seasons = MIN_SEASONS_AMOUNT;
+        this.seasons = Math.max(seasons, MIN_SEASONS_AMOUNT);
     }
 
     public int getSeriesInSeason() {
         return seriesInSeason;
     }
     public void setSeriesInSeason(int seriesInSeason) {
-        this.seriesInSeason = seriesInSeason;
-        if (seriesInSeason > MIN_SERIES_AMOUNT) this.seriesInSeason = seriesInSeason;
-        else this.seriesInSeason = MIN_SERIES_AMOUNT;
+        this.seriesInSeason = Math.max(seriesInSeason, MIN_SERIES_AMOUNT);
     }
 
     @Override
@@ -67,5 +69,19 @@ public class Series extends Content {
                 + "\nNumber of seasons: " + seasons
                 + "\nBudget: " + budget
                 + "\nGross: " + gross;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(name);
+        out.writeObject(type);
+        out.writeObject(creator);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        name = (String) in.readObject();
+        type = (ContentType) in.readObject();
+        creator = (String) in.readObject();
     }
 }

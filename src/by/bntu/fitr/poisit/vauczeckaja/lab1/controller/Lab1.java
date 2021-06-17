@@ -18,7 +18,7 @@ import by.bntu.fitr.poisit.vauczeckaja.lab1.view.Printer;
 public class Lab1 {
     private static final String OUTPUT_MENU = "\nDo you want to...\n" +
             "1 - print data on the console\n" +
-            "2 - echo print\n";
+            "2 - print to the file \"output.txt\"\n";
     private static final String MENU = "\nYou are film producer. In this program you can:\n" +
             "1 - create content (films, tv series, animated films\n" +
             "2 - calculate profit of your company\n" +
@@ -27,7 +27,8 @@ public class Lab1 {
             "5 - check info about all films\n" +
             "6 - sort set by a parameter\n" +
             "7 - search info by a parameter\n" +
-            "8 - exit.\n";
+            "8 - serialize and deserialize info about films\n" +
+            "9 - exit.\n";
 
     private static final Reader CONSOLE_READER = new ConsoleReader();
 
@@ -39,7 +40,8 @@ public class Lab1 {
         SHOW_INFO(5),
         SORT(6),
         SEARCH(7),
-        EXIT(8),
+        SERIALIZE(8),
+        EXIT(9),
         WRONG_INPUT(0);
 
         private final int value;
@@ -110,6 +112,10 @@ public class Lab1 {
 
                 case SEARCH:
                     printer.println(Manager.searchBy(contentList));
+                    break;
+
+                case SERIALIZE:
+                    printer.println(Manager.performSerialization(contentList));
                     break;
 
                 case EXIT:

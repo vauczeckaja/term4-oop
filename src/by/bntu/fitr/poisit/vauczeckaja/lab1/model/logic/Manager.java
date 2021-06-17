@@ -7,6 +7,7 @@ import java.lang.StringBuilder;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content.Content;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.search.Searcher;
 import by.bntu.fitr.poisit.vauczeckaja.lab1.model.logic.patterns.strategy.sort.Sorter;
+import by.bntu.fitr.poisit.vauczeckaja.lab1.util.Serializer;
 
 
 public class Manager {
@@ -47,6 +48,7 @@ public class Manager {
 
     public static String checkStatus(List<Content> contentList) {
         StringBuilder res = new StringBuilder();
+        res.append("\n");
         if (contentList != null) {
             for (Content content : contentList) {
                 String status = Status.FAILED.toString();
@@ -70,7 +72,7 @@ public class Manager {
     public static String sortBy(List<Content> contentList) {
         String res = "";
         if (contentList != null) {
-            List<Content> list = new ArrayList<Content>(Sorter.sort(contentList));
+            List<Content> list = new ArrayList<>(Sorter.sort(contentList));
             res = showInfo(list);
         }
         return res;
@@ -79,9 +81,24 @@ public class Manager {
     public static String searchBy(List<Content> contentList) {
         String res = "";
         if (contentList != null) {
-            List<Content> list = new ArrayList<Content>(Searcher.search(contentList));
+            List<Content> list = new ArrayList<>(Searcher.search(contentList));
             res = showInfo(list);
         }
         return res;
+    }
+
+    public static String performSerialization(List<Content> contentList) {
+        StringBuilder res = new StringBuilder();
+        if (contentList != null) {
+            Serializer.write(contentList);
+            res.append("\nData were serialized. Data about series were externalized.\n" +
+                    "Please check file ").append(Serializer.DEFAULT_FILENAME);
+            res.append("\nData were deserialized:\n");
+            List<Content> deserList = Serializer.read();
+            for (Content content : deserList) {
+                res.append(content.toString()).append("\n");
+            }
+        }
+        return res.toString();
     }
 }

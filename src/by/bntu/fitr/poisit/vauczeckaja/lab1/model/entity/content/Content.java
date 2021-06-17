@@ -1,8 +1,10 @@
 package by.bntu.fitr.poisit.vauczeckaja.lab1.model.entity.content;
 
+import java.io.*;
 import java.util.EnumSet;
 
-public class Content {
+public class Content implements Serializable {
+    private static final long serialVersionUID = -4459781753472040680L;
     protected static final int MIN_COST = 0;
 
     public enum ContentType {
