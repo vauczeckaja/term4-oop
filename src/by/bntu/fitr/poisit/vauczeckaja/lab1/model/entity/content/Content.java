@@ -33,9 +33,9 @@ public class Content implements Serializable {
     protected ContentType type;
     protected String name;
     protected String creator;
-    protected int budget;
-    protected int gross;
-    protected int profit;
+    protected transient int budget;
+    protected transient int gross;
+    protected transient int profit;
 
     public Content() {
         type = ContentType.NOT_DEFINED;
